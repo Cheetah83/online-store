@@ -14,53 +14,34 @@ const NavBar = () => {
       <div className="nav-container">
         <nav className="navbar navbar-expand-lg">
           <div className="container-fluid py-2">
+            <Link className="navbar-brand mx-auto fw-bold" to="/">YACHI'S APPLE STORE</Link>
             
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
               <ul className="navbar-nav nav-pills flex-row mb-auto">
-                <li className="nav-item">
-                  <Link className="nav-link link-dark" aria-current="page" to="/">
-                    Home
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link link-dark" to="/products">
-                    Product
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link link-dark" to="/about">About</Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link link-dark" to="/contact">Contact</Link>
-                </li>
-              
+                {!isAuth && (
+                  <>
+                    <li className="nav-item">
+                          <Link className="nav-link link-dark" to="/login">Login</Link>
+                    </li>
+                    <li className="nav-item">
+                          <Link className="nav-link link-dark" to="/register">Register</Link>
+                    </li>
+                  </>
+                )}
+                {isAuth && (
+                  <>
+                    <li className="nav-item">
+                        <Link className="nav-link link-dark" to="/create">Add Product</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link link-dark" to="/create">{userEmail}</Link>
+                    </li>
+                  </>
+                )}
               </ul>
-            <Link className="navbar-brand mx-auto fw-bold" to="/">YACHI'S APPLE STORE</Link>
-            <ul className="navbar-nav nav-pills flex-row mb-auto">
-              {!isAuth && (
-                <>
-                  <li className="nav-item">
-                        <Link className="nav-link link-dark" to="/login">Login</Link>
-                  </li>
-                  <li className="nav-item">
-                        <Link className="nav-link link-dark" to="/register">Register</Link>
-                  </li>
-                </>
-              )}
-              {isAuth && (
-                <>
-                  <li className="nav-item">
-                      <Link className="nav-link link-dark" to="/create">Add Product</Link>
-                  </li>
-                  <li className="nav-item">
-                      <Link className="nav-link link-dark" to="/create">{userEmail}</Link>
-                  </li>
-                </>
-              )}
-            </ul>
               {/* {isAuth && ( */}
                 <div className="nav-bag">
                   <Link to="/cart">

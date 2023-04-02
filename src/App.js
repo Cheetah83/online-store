@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 import { productServiceFactory } from './features/productService';
 import { AuthContext } from './context/AuthContext';
 import { authServiceFactory } from './services/authService';
+import Footer from './components/Footer';
 
 function App() {
   const navigate = useNavigate()
@@ -104,6 +105,7 @@ function App() {
         <Route exact path="/register" element={<Register />} />
         <Route path="/*" element={<NotFound />}/>
       </Routes>
+      <Footer />
     </div>
     </AuthContext.Provider>
   );
