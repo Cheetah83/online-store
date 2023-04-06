@@ -1,4 +1,3 @@
-import productSlice from "../features/productSlice"
 
 const Home = () => {
   return (

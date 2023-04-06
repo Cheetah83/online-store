@@ -4,20 +4,21 @@ import axios from "axios";
 const initialState = {
   items: [],
   status: null,
-  error: null
-}
+};
 
 export const productsFetch = createAsyncThunk(
   "products/productsFetch",
-  async(id=null, { rejectWithValue }) => {
+  async () => {
     try {
-      const response = await axios.get("http://localhost:3000/products");
-      return response?.data;      
+      const response = await axios.get(
+        "https://localhost:3000/products"
+      );
+      return response.data;
     } catch (error) {
-      return rejectWithValue("error in the url") 
+      console.log(error);
     }
   }
-)
+);
 
 const productsSlice = createSlice({
   name: "products",
@@ -28,12 +29,11 @@ const productsSlice = createSlice({
       state.status = "pending";
     },
     [productsFetch.fulfilled]: (state, action) => {
-      state.status = "success";
       state.items = action.payload;
+      state.status = "success";
     },
-    [productsFetch.pending]: (state, action) => {
+    [productsFetch.rejected]: (state, action) => {
       state.status = "rejected";
-      state.error = action.payload;
     },
   },
 });
