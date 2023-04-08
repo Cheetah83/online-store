@@ -18,7 +18,6 @@ import Product from "./components/Product";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import ProductDetail from "./components/ProductDetail";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +40,6 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
             <Route path="/products" element={<Product />} />
-            <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/not-found" element={<NotFound />} />
             <Route to="/not-found" />
           </Routes>

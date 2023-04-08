@@ -44,7 +44,6 @@ const NavBar = () => {
           >
             Logout
           </Logout>
-          <Link to="/create">Add New Product</Link>
         </>
       ) : (
         <AuthLinks>

@@ -22,22 +22,22 @@ const Product = () => {
       {status === "success" ? (
         <>
           <h2>New Arrivals</h2>
-          <div className="products">
+          <div className="products  row-md-6">
             {data &&
               data?.map((product) => (
-                <div key={product.id} className="product">
-                  <h3>{product.name}</h3>
-                  <img src={product.image} alt={product.name} />
-                  <div className="details">
-                    <span className="price">${product.price}</span>
+                  <div key={product.id} className="product">
+                    <h3>{product.name}</h3>
+                    <img src={product.image} alt={product.name} />
+                    <div className="details">
+                      <span className="price col-md-4">${product.price}</span>
+                      <p className="desc col">{product.desc}</p>
+                    </div>
+                    <button onClick={() => handleAddToCart(product)}>
+                      Add To Cart
+                    </button>
                   </div>
-                  <Link to={`/products/${product.id}`}><button>Details</button></Link>
-                  <button onClick={() => handleAddToCart(product)}>
-                    Add To Cart
-                  </button>
-                </div>
               ))}
-          </div>
+              </div>
         </>
       ) : status === "pending" ? (
         <p>Loading...</p>
