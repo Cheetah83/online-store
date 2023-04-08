@@ -1,9 +1,7 @@
+import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import 'semantic-ui-css/semantic.min.css'
-// Import all of Bootstrap's CSS
-import "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css";
 
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -21,8 +19,6 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import ProductDetail from "./components/ProductDetail";
-import CreateProduct from "./components/Create/CreateProduct";
-import Products from "./components/Products/Products";
 
 function App() {
   const dispatch = useDispatch();
@@ -42,10 +38,9 @@ function App() {
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/create" element={<CreateProduct />} />
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/products" element={<Product />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/not-found" element={<NotFound />} />
             <Route to="/not-found" />

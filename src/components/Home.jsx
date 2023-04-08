@@ -3,7 +3,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="row">
-        <div className="col-md-6" height="500px">
+        <div className="col" height="500px">
           <img src="https://blogs-images.forbes.com/gordonkelly/files/2018/09/2.png" alt="Apple iPhone XS and XS Max" />
         </div>
         <div className="col-md-6">
